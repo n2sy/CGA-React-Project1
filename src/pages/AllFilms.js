@@ -2,8 +2,9 @@
 
 
 import React from 'react';
+import FilmList from '../components/FilmList';
 
-const listFilms = [
+const FAKE_DATA = [
     {
         id: 'f1',
         title: 'Heat',
@@ -22,7 +23,9 @@ const listFilms = [
 
 function AllFilms() {
   return (
-    <div>AllFilms</div>
+    <div>
+        <FilmList films={FAKE_DATA}></FilmList>
+    </div>
   )
 }
 

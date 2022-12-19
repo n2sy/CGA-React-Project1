@@ -2,10 +2,13 @@
 
 
 import React from 'react'
+import FilmForm from '../components/FilmForm'
 
 function AddFilm() {
   return (
-    <div>AddFilm</div>
+    <div>
+        <FilmForm></FilmForm>
+    </div>
   )
 }
 
