@@ -3,6 +3,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import FavContext from '../store/favorites-context';
+import LoginContext from '../store/login-context';
 import classes from './Navbar.module.css';
 
 function Navbar() {
@@ -11,6 +12,9 @@ function Navbar() {
     }
 
     const favCtx = useContext(FavContext);
+    const logCtx = useContext(LoginContext); 
+
+    if(logCtx.isLogged)
   return (
     <header className={classes.header}>
         <div className={classes.logo}>Film Shop</div>
@@ -30,7 +34,33 @@ function Navbar() {
                 </li>
                 <li>
                     <Link to="/favorites">Favorites</Link>
-                      <span class="badge badge-secondary">{favCtx.nbFavorites}</span>
+                      <span class="badge bg-secondary">{favCtx.nbFavorites}</span>
+
+                </li>
+                <li onClick={() => {logCtx.signout()}}>
+                <Link>Logout</Link>                  
+
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+  )
+
+  else 
+  return (
+    <header className={classes.header}>
+        <div className={classes.logo}>Film Shop</div>
+        <nav>
+            <ul>
+                <li>
+                    <NavLink to="/" style={({isActive}) => isActive ? activeStyle : undefined}>Home</NavLink>
+
+                </li>
+              
+                <li>
+                    <Link to="/login">Login</Link>
+                  
 
                 </li>
             </ul>
